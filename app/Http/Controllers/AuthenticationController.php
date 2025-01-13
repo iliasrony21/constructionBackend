@@ -34,12 +34,13 @@ class AuthenticationController extends Controller
                 return response()->json([
                     'status' => 'true',
                     'token' => $token,
+                    'id' => Auth::user()->id,
                     'user' => $user,
                 ]);
             } else {
                 return response()->json([
                     'status' => 'false',
-                    'message ' => 'Email or Password is not correct'
+                    'message' => 'Email or Password is not correct'
                 ]);
             }
         }
