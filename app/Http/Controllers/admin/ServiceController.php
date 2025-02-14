@@ -26,9 +26,11 @@ class ServiceController extends Controller
     // Fetch all services
     public function index()
     {
+        $services = $this->service->latest()->paginate(20); // Change 10 to your desired per-page count
+
         return response()->json([
             'status' => true,
-            'data'   => $this->service->latest()->get(),
+            'data'   => $services,
         ]);
     }
 
